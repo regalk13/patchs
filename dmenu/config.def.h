@@ -1,15 +1,4 @@
-/*  ____ _____  */
-/* |  _ \_   _|  Derek Taylor (DistroTube) */
-/* | | | || |  	http://www.youtube.com/c/DistroTube */
-/* | |_| || |  	http://www.gitlab.com/dwt1/ */
-/* |____/ |_|  	*/
-
-/* See LICENSE file for copyright and license details. */
-/* Default settings; can be overriden by command line. */
-/* Config was built with dmenu-flexipatch:             */
-/* https://github.com/bakkeby/dmenu-flexipatch         */
-
-/* The patches I have enabled are:   
+/* The patches I have enabled are:
 * - alpha
 * - border
 * - center
@@ -56,7 +45,7 @@ static char font[] = "monospace 10";
 #if XRESOURCES_PATCH
 static char *fonts[] =
 #else
-static const char *fonts[] = 
+static const char *fonts[] =
 #endif // XRESOURCES_PATCH
 {
 	"Hack:pixelsize=11:antialias=true:autohint=true",
