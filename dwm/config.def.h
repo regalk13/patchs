@@ -14,9 +14,9 @@ static const char *fonts[]     = {"Ubuntu:weight=bold:size=8:antialias=true:hint
                                   "Hack:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
-static const char col_1[]  = "#282c34"; /* background color of bar */
-static const char col_2[]  = "#282c34"; /* border color unfocused windows */
-static const char col_3[]  = "#d7d7d7";
+static const char col_1[]  = "#282828"; /* background color of bar */
+static const char col_2[]  = "#282828"; /* border color unfocused windows */
+static const char col_3[]  = "#fbf1c7";
 static const char col_4[]  = "#924441"; /* border color focused windows and tags */
 /* bar opacity
  * 0xff is no transparency.
@@ -82,40 +82,18 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]    = { "dm-run", NULL };
+static const char *dmenucmd[]    = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *tabtermcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
 
 static Keychord keychords[] = {
 	/* Keys        function        argument */
-	{1, {{MODKEY|ShiftMask, XK_Return}}, spawn,          {.v = dmenucmd } },
+	{1, {{MODKEY|ShiftMask, XK_Return}}, spawn,          SHCMD("dmenu_run") },
 	{1, {{MODKEY, XK_Return}},			 spawn,          {.v = termcmd } },
 	{1, {{Mod1Mask, XK_Return}},         spawn,          {.v = tabtermcmd } },
 	{1, {{MODKEY|ShiftMask, XK_c}},		 killclient,     {0} },
 
-	/* Dmenu scripts launched with emacs-style keychords SUPER + p followed by "key" */
-	{2, {{MODKEY, XK_p}, {0, XK_e}},      spawn,         SHCMD("dm-confedit") },
-	{2, {{MODKEY, XK_p}, {0, XK_i}},      spawn,         SHCMD("dm-maim") },
-	{2, {{MODKEY, XK_p}, {0, XK_k}},      spawn,         SHCMD("dm-kill") },
-	{2, {{MODKEY, XK_p}, {0, XK_l}},      spawn,         SHCMD("dm-logout") },
-	{2, {{MODKEY, XK_p}, {0, XK_m}},      spawn,         SHCMD("dm-man") },
-	{2, {{MODKEY, XK_p}, {0, XK_r}},      spawn,         SHCMD("dm-reddit") },
-	{2, {{MODKEY, XK_p}, {0, XK_s}},      spawn,         SHCMD("dm-websearch") },
-	{2, {{MODKEY, XK_p}, {0, XK_p}},      spawn,         SHCMD("passmenu") },
-
-	{2, {{MODKEY, XK_e}, {0, XK_e}},      spawn,         SHCMD("emacsclient -c -a 'emacs'") },
-	{2, {{MODKEY, XK_e}, {0, XK_a}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(emms)' --eval '(emms-play-directory-tree \"~/Music/\")'") },
-	{2, {{MODKEY, XK_e}, {0, XK_b}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(ibuffer)'") },
-	{2, {{MODKEY, XK_e}, {0, XK_d}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(dired nil)'") },
-	{2, {{MODKEY, XK_e}, {0, XK_i}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(erc)'") },
-	{2, {{MODKEY, XK_e}, {0, XK_n}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(elfeed)'") },
-	{2, {{MODKEY, XK_e}, {0, XK_s}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(eshell)'") },
-	{2, {{MODKEY, XK_e}, {0, XK_v}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'") },
-	{2, {{MODKEY, XK_e}, {0, XK_w}},      spawn,         SHCMD("emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(eww \"distro.tube\"))'") },
-
     /* Web browsers */
-    {1, {{MODKEY, XK_b}},                 spawn,         SHCMD("qutebrowser") },
-    {1, {{MODKEY|Mod1Mask, XK_s}},        spawn,         SHCMD("tabbed -r 2 surf -pe x '.surf/html/homepage.html'") },
 
 
 	{1, {{MODKEY, XK_b}},				  togglebar,      {0} },

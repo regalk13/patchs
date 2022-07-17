@@ -1,9 +1,12 @@
-static char *font = "Hack:pixelsize=14:antialias=true:autohint=true";
+/* Your default font will be Hack which is found in the standard
+ * Arch repos and is listed as a dependency for this build. JoyPixels is also
+ * a hard dependency and makes colored fonts and emojis possible.
+ */
+static char *font = "Hack Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static char *font2[] = {
     "JoyPixels:pixelsize=14:antialias=true:autohint=true",
 };
 static int borderpx = 2;
-
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
@@ -92,46 +95,37 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 float alpha = 0.5;
 
-/* Terminal colors (16 first used in escape sequence) */
-/* Colorscheme based on the 'Doom One' theme from Doom Emacs */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#1c1f24",
-	"#ff6c6b",
-	"#98be65",
-	"#da8548",
-	"#51afef",
-	"#c678dd",
-	"#5699af",
-	"#202328",
+       /* 8 normal colors */
+  "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+  "#cc241d", /* red     */
+  "#98971a", /* green   */
+  "#d79921", /* yellow  */
+  "#458588", /* blue    */
+  "#b16286", /* magenta */
+  "#689d6a", /* cyan    */
+  "#a89984", /* white   */
 
-	/* 8 bright colors */
-	"#5b6268",
-	"#da8548",
-	"#4db5bd",
-	"#ecbe7b",
-	"#3071db",
-	"#a9a1e1",
-	"#46d9ff",
-	"#dfdfdf",
+  /* 8 bright colors */
+  "#928374", /* black   */
+  "#fb4934", /* red     */
+  "#b8bb26", /* green   */
+  "#fabd2f", /* yellow  */
+  "#83a598", /* blue    */
+  "#d3869b", /* magenta */
+  "#8ec07c", /* cyan    */
+  "#ebdbb2", /* white   */
 
-	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#282c34",
-	"#bbc2cf",
-	"#d7d7d7",
 };
-
-
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
+unsigned int defaultfg = 15;
+unsigned int defaultbg = 0;
 static unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 15;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
